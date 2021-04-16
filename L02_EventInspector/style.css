@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#div0 {
+    border: thin solid black;
+    border-radius: 15px;
+    background-color: #56a89f;
+    display: inline-block;
+    height: 500px;
+    width: 400px;
+}
+
+#div1 {
+    border: thin solid black;
+    border-radius: 15px;
+    background-color: #56a89f;
+    display: inline-block;
+    height: 500px;
+    width: 400px;
+}
+
+#span {
+    border: thin solid black;
+    background-color: lightgray;
+    display: inline-block;
+    position: fixed;
+}
