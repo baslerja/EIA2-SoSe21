@@ -1,7 +1,9 @@
 namespace L08_1_GenerativeArt {
-    
+
     window.addEventListener("load", handleLoad);
     let crc2: CanvasRenderingContext2D;
+
+
 
     function handleLoad(_event: Event): void {
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -17,10 +19,11 @@ namespace L08_1_GenerativeArt {
 
         canvasPattern.width = 100;
         canvasPattern.height = 100;
+        let randomRadius: number = Math.random() * 2;
 
         crc2Pattern.fillStyle = "#cf6342";
         crc2Pattern.fillRect(0, 0, canvasPattern.width, canvasPattern.height);
-        crc2Pattern.arc(50, 50, 50, 0, 1.5 * Math.PI);
+        crc2Pattern.arc(50, 50, 50, 0, randomRadius * Math.PI);
         crc2Pattern.stroke();
 
         let pattern: CanvasPattern = <CanvasPattern>crc2.createPattern(canvasPattern, "repeat");
@@ -29,12 +32,16 @@ namespace L08_1_GenerativeArt {
 
         drawArc();
         drawTriangles();
+        drawRectangle();
+
+        let button: HTMLElement = <HTMLElement>document.querySelector("#button");
+        button.addEventListener("click", handleLoad);
     }
 
     function drawArc(): void {
         for (let i: number = 0; i < 50; i++) {
-            let x: number = Math.random() * 800;
-            let y: number = Math.random() * 600;
+            let x: number = Math.random() * 1000;
+            let y: number = Math.random() * 500;
             let color: string[] = ["white", "grey", "black"];
             let randomColor: string = color[Math.floor(Math.random() * color.length)];
 
@@ -52,8 +59,8 @@ namespace L08_1_GenerativeArt {
 
     function drawTriangles(): void {
         for (let i: number = 0; i < 40; i++) {
-            let x: number = Math.random() * 800;
-            let y: number = Math.random() * 600;
+            let x: number = Math.random() * 1000;
+            let y: number = Math.random() * 500;
 
             crc2.save();
             crc2.translate(x, y);
@@ -65,6 +72,24 @@ namespace L08_1_GenerativeArt {
             crc2.closePath();
 
             crc2.fillStyle = "#D6B745";
+            crc2.fill();
+
+            crc2.restore();
+        }
+    }
+
+    function drawRectangle(): void {
+        for (let i: number = 0; i < 30; i++) {
+            let x: number = Math.random() * 1000;
+            let y: number = Math.random() * 500;
+
+            crc2.save();
+            crc2.translate(x, y);
+
+            crc2.beginPath();
+            crc2.rect(10, 10, 50, 30);
+
+            crc2.fillStyle = "#58acd6";
             crc2.fill();
 
             crc2.restore();
